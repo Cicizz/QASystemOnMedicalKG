@@ -57,11 +57,11 @@ class AnswerSearcher:
 
         if len(high_match_disease) > 0:
             sql = self.parser.sql_transfer('disease_department', high_match_disease)
-            recommend_departments = self.search_graph(sql)
+            recommend_departments = self.search_graph(sqls=sql,return_key='n.name')
             return self.search_and_recommend_dep(recommend_departments, history_match_dep)
         elif len(diseases) <= 3:
             sql = self.parser.sql_transfer('disease_department', diseases)
-            recommend_departments = self.search_graph(sql)
+            recommend_departments = self.search_graph(sqls=sql,return_key='n.name')
             return self.search_and_recommend_dep(recommend_departments, history_match_dep)
         else:
             # 获取疾病的三个关联症状
