@@ -4,9 +4,9 @@
 # Author: lhy<lhy_in_blcu@126.com,https://huangyong.github.io>
 # Date: 18-10-4
 
+from answer_search import *
 from question_classifier import *
 from question_parser import *
-from answer_search import *
 
 '''问答类'''
 class ChatBotGraph:
@@ -16,7 +16,7 @@ class ChatBotGraph:
         self.searcher = AnswerSearcher()
 
     def chat_main(self, sent):
-        answer = '您好，我是小支导诊助理，请描述一下您的病症：'
+        answer = '您好，我是小支导诊助理，我不太理解您的问题，请详细描述一下您的病症：'
         res_classify = self.classifier.classify(sent)
         if not res_classify:
             return answer
@@ -29,6 +29,7 @@ class ChatBotGraph:
 
 if __name__ == '__main__':
     handler = ChatBotGraph()
+    print("'您好，我是小支导诊助理，请描述一下您的病症：")
     while 1:
         question = input('用户:')
         answer = handler.chat_main(question)

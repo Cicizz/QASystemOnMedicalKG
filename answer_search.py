@@ -13,11 +13,7 @@ class AnswerSearcher:
         #     http_port=7474,
         #     user="",
         #     password="")
-        self.g = Graph(
-            host="localhost",
-            http_port=7474,
-            user="medical",
-            password="medical")
+        self.g = Graph("http://localhost:7474", user="medical", password="medical")
         self.num_limit = 20
 
     '''执行cypher查询，并返回相应结果'''
